@@ -33,14 +33,14 @@ const questions = [
 
 //creating the SVG with the writeToFile function
 
-//function writeToFile(fileName, data) {
-   // return fs.writeFileSync(path.join(process.cwd(), fileName), data);
-    //}
+function writeFile(fileName, data) {
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+    }
 //using a switch statement in the init function so that writeToFile is only called based on what shape is in the data from responses
 const init = () => {
     inquirer.prompt(questions)
         .then((data) => {
-            switch (`${data.shape}`) {
+            switch (`${data.shapeChoice}`) {
                 case 'Square':
                     const square = new Square(data.fill, data.text, data.textColor)
                     fs.writeFile('./examples/logo.svg', square.renderSquare(), (err) => {
