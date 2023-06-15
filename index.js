@@ -9,11 +9,14 @@ const questions = [
     {
         type: "list",
         message: "What shape do you need? Pick one.",
+        name: "shapeChoice",
         choices: [
-            "Square",
-            "Triangle",
-            "Circle"
-        ]
+            'Square',
+            'Triangle',
+            'Circle'
+        ],
+        default: "none"
+
     },
     //here we are prompting for the shapes color by color name of hexideciaml number
     {
