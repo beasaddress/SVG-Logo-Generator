@@ -1,9 +1,8 @@
 //importing packages here
 const inquirer = require('inquirer');
 const fs = require('fs');
-
-//importing what will be my generator
-const generator = require('./utils/generator');
+//importing my classes
+const shapes = require('./lib/shapes.js');
 
 //what will be prompted to user thru CLI
 const questions = [
@@ -34,15 +33,41 @@ const questions = [
 function writeToFile(fileName, data) {
     return fs.writeFileSync(path.join(process.cwd(), fileName), data);
     }
-
-function init() {
-    //prompting the questions with the init function
-    inquirer.prompt(questions).then((responses) => {
-        console.log("Creating your logo...");
-
-    writeToFile("./examples/SVGLogo.svg", generator({...responses}))
-    console.log("Logo created!");
-    });
+//using a switch statement in the init function so that writeToFile is only called based on what shape is in the data from responses
+const init = () => {
+    inquirer.prompt(questions)
+        .then((data) => {
+            switch (`${data.shape}`) {
+                case 'Square':
+                    const square = new Square(data.fill, data.text, data.textColor)
+                    fs.writeFile('./examples/logo.svg', square.renderSquare(), (err) => {
+                        if (err) {
+                            console.error(err);
+                        } else {
+                            console.log("Logo created");
+                        }
+                    });
+                    break;
+                case 'Circle';
+                    const circle = new Circle(data.fill, data.text, data.textColor)
+                    fs.writeFile('./examples/logo.svg', circle.renderCircle(), (err) => {
+                        if (err) {
+                            console.error(err);
+                        } else {
+                            console.log("Logo created");
+                        }
+                    });
+                    case 'Triangle';
+                    const triangle = new Triangle(data.fill, data.text, data.textColor)
+                    fs.writeFile('./examples/logo.svg', triangle.renderTriangle(), (err) => {
+                        if (err) {
+                            console.error(err);
+                        } else {
+                            console.log("Logo created");
+                        }
+                    });
+            }
+        })
 }
 
 init();
