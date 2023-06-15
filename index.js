@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 //importing my classes
-const shapes = require('./lib/shapes.js');
+const { Circle, Triangle, Square } = require('./lib/shapes.js');
 
 //what will be prompted to user thru CLI
 const questions = [
@@ -48,7 +48,7 @@ const init = () => {
                         }
                     });
                     break;
-                case 'Circle';
+                case 'Circle':
                     const circle = new Circle(data.fill, data.text, data.textColor)
                     fs.writeFile('./examples/logo.svg', circle.renderCircle(), (err) => {
                         if (err) {
@@ -57,7 +57,7 @@ const init = () => {
                             console.log("Logo created");
                         }
                     });
-                    case 'Triangle';
+                    case 'Triangle':
                     const triangle = new Triangle(data.fill, data.text, data.textColor)
                     fs.writeFile('./examples/logo.svg', triangle.renderTriangle(), (err) => {
                         if (err) {
