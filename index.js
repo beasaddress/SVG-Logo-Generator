@@ -52,7 +52,7 @@ const init = () => {
                         if (err) {
                             console.error(err);
                         } else {
-                            console.log("Logo created");
+                            console.log("Generated logo.svg");
                         }
                     });
                     break;
@@ -62,7 +62,7 @@ const init = () => {
                         if (err) {
                             console.error(err);
                         } else {
-                            console.log("Logo created");
+                            console.log("Generated logo.svg");
                         }
                     });
                     break;
@@ -72,7 +72,7 @@ const init = () => {
                         if (err) {
                             console.error(err);
                         } else {
-                            console.log("Logo created");
+                            console.log("Generated logo.svg");
                         }
                     });
                     break;
