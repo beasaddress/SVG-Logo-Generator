@@ -18,7 +18,7 @@ const questions = [
         default: "none"
 
     },
-    //here we are prompting for the shapes color by color name of hexideciaml number
+    //here we are prompting for the shapes color by color name or hexideciaml number
     {
         type: "input",
         message: "What color will your shape be? Type color or hexideciaml.",
